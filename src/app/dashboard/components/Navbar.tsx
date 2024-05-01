@@ -1,32 +1,55 @@
-import React from "react";
+"use client";
+
+import { IcMenu } from "@/components/Icons";
+import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
+import Menu from "./Menu";
 
 interface NavbarProps {
   className?: string;
 }
 
 const Navbar = ({ className }: NavbarProps) => {
+  const [checked, setChecked] = useState(false);
+
   return (
     <div className={twMerge("navbar z-10 bg-white lg:hidden", className)}>
-      <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
-      </div>
-      <div className="flex-none">
-        <button className="btn btn-square btn-ghost">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="inline-block h-5 w-5 stroke-current"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-            ></path>
-          </svg>
-        </button>
+      <div className="drawer">
+        <input
+          checked={checked}
+          id="my-drawer"
+          type="checkbox"
+          className="drawer-toggle"
+        />
+        <label
+          onClick={(e) => {
+            e.preventDefault();
+
+            setChecked(true);
+          }}
+          htmlFor="my-drawer"
+          className="drawer-button cursor-pointer"
+        >
+          <IcMenu />
+        </label>
+        <div className="drawer-side">
+          <label
+            onClick={(e) => {
+              e.preventDefault();
+
+              setChecked(false);
+            }}
+            htmlFor="my-drawer"
+            aria-label="close sidebar"
+            className="drawer-overlay"
+          ></label>
+          <div className="flex min-h-full flex-col">
+            <Menu
+              className="flex flex-1"
+              onMenuClick={() => setChecked(false)}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

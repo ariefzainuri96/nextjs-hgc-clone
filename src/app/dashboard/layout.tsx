@@ -13,7 +13,8 @@ export default function Layout({
     <html lang="en">
       <body
         className={
-          `${inter.variable}` + " flex h-screen w-screen flex-col bg-white"
+          `${inter.variable}` +
+          " flex h-screen w-screen min-w-[400px] flex-col bg-white"
         }
       >
         <div className="flex flex-1 flex-col overflow-y-auto lg:flex-row">

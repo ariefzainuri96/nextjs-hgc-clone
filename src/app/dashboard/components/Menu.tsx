@@ -10,11 +10,12 @@ import {
 import { menus } from "@/source/dashboard_source";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 
 interface MenuProps {
   className?: string;
+  onMenuClick?: () => void;
 }
 
 const Icon = ({ image }: { image: string }) => {
@@ -29,10 +30,11 @@ const Icon = ({ image }: { image: string }) => {
   return <IcBlogging />;
 };
 
-const Menu = ({ className }: MenuProps) => {
+const Menu = ({ className, onMenuClick }: MenuProps) => {
   const pathName = usePathname();
   const searchParam = useSearchParams();
   const parent = searchParam.get("parents");
+  const router = useRouter();
 
   return (
     <div
@@ -95,21 +97,26 @@ const Menu = ({ className }: MenuProps) => {
                     : `${parent},${element.key}`;
 
                   return (
-                    <Link
+                    <div
                       key={_element.content}
-                      href={`${_element.href ?? ""}?parents=${parents}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+
+                        router.push(
+                          `${_element.href ?? ""}?parents=${parents}`,
+                        );
+
+                        if (onMenuClick) onMenuClick();
+                      }}
+                      className={twMerge(
+                        "mx-[16px] mt-[8px] flex cursor-pointer flex-row items-center rounded-md py-[8px] pl-[60px] pr-[12px] hover:bg-[#FFEBEB]",
+                        selected && "bg-[#FFEBEB]",
+                      )}
                     >
-                      <div
-                        className={twMerge(
-                          "mx-[16px] mt-[8px] flex flex-row items-center rounded-md py-[8px] pl-[60px] pr-[12px] hover:bg-[#FFEBEB]",
-                          selected && "bg-[#FFEBEB]",
-                        )}
-                      >
-                        <p className="line-clamp-1 min-w-0 flex-1 text-wrap text-[16px] font-semibold">
-                          {_element.content}
-                        </p>
-                      </div>
-                    </Link>
+                      <p className="line-clamp-1 min-w-0 flex-1 text-wrap text-[16px] font-semibold">
+                        {_element.content}
+                      </p>
+                    </div>
                   );
                 })}
             </div>

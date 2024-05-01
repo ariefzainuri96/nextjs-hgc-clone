@@ -1,6 +1,8 @@
 interface IconProps {
   fill?: string;
   stroke?: string;
+  width?: string;
+  height?: string;
 }
 
 export const IcArrowUp = ({ fill, stroke }: IconProps) => {
@@ -14,6 +16,46 @@ export const IcArrowUp = ({ fill, stroke }: IconProps) => {
     >
       <path
         d="M6 15L12 9L18 15"
+        stroke={stroke ?? "#000000"}
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const IcSearch = ({ width, height, fill, stroke }: IconProps) => {
+  return (
+    <svg
+      width={`${width ?? 24}px`}
+      height={`${height ?? 24}px`}
+      viewBox="0 0 24 24"
+      fill={fill ?? "none"}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
+        stroke={stroke ?? "#000000"}
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const IcMenu = ({ width, height, fill, stroke }: IconProps) => {
+  return (
+    <svg
+      width={`${width ?? 24}px`}
+      height={`${height ?? 24}px`}
+      viewBox="0 0 24 24"
+      fill={fill ?? "none"}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 6H20M4 12H14M4 18H9"
         stroke={stroke ?? "#000000"}
         stroke-width="2"
         stroke-linecap="round"
