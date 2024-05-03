@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Menu from "./components/Menu";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -12,15 +13,20 @@ export default function Layout({
   return (
     <div
       className={
-        `${inter.variable}` +
-        " flex h-screen w-screen min-w-[400px] flex-col overflow-hidden bg-white"
+        `${inter.variable}` + " h-screen w-screen min-w-[400px] overflow-hidden"
       }
     >
-      <div className="flex flex-1 flex-col overflow-y-auto lg:flex-row">
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover"
+        />
+      </Head>
+      <div className="flex h-full w-full flex-col overflow-hidden lg:flex-row">
         <Menu />
         <div className="hidden w-[1px] bg-slate-100 lg:block" />
         <Navbar />
-        <main className="flex-1 overflow-y-scroll bg-white">{children}</main>
+        <main className="flex-1 overflow-y-scroll">{children}</main>
       </div>
     </div>
   );
