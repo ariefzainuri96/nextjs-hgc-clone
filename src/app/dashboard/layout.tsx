@@ -13,8 +13,7 @@ export default function Layout({
   return (
     <div
       className={
-        `${inter.variable}` +
-        " h-screen max-h-screen w-screen min-w-[400px] overflow-hidden"
+        `${inter.variable}` + " h-screen max-h-screen w-screen overflow-hidden"
       }
     >
       <Head>
