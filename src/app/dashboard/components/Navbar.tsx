@@ -17,6 +17,7 @@ const Navbar = ({ className }: NavbarProps) => {
       <div className="drawer">
         <input
           checked={checked}
+          onChange={(e) => {}}
           id="my-drawer"
           type="checkbox"
           className="drawer-toggle"
