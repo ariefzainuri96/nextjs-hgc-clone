@@ -45,6 +45,46 @@ export const IcSearch = ({ width, height, fill, stroke }: IconProps) => {
   );
 };
 
+export const IcTrash = ({ width, height, fill, stroke }: IconProps) => {
+  return (
+    <svg
+      width={`${width ?? 20}px`}
+      height={`${height ?? 21}px`}
+      viewBox="0 0 20 21"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.5 5.82766H4.16667M4.16667 5.82766H17.5M4.16667 5.82766V17.4943C4.16667 17.9364 4.34226 18.3603 4.65482 18.6728C4.96738 18.9854 5.39131 19.161 5.83333 19.161H14.1667C14.6087 19.161 15.0326 18.9854 15.3452 18.6728C15.6577 18.3603 15.8333 17.9364 15.8333 17.4943V5.82766H4.16667ZM6.66667 5.82766V4.16099C6.66667 3.71896 6.84226 3.29504 7.15482 2.98248C7.46738 2.66992 7.89131 2.49432 8.33333 2.49432H11.6667C12.1087 2.49432 12.5326 2.66992 12.8452 2.98248C13.1577 3.29504 13.3333 3.71896 13.3333 4.16099V5.82766M8.33333 9.99432V14.9943M11.6667 9.99432V14.9943"
+        stroke={stroke ?? "#E24955"}
+        stroke-width="1.66667"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const IcAdd = ({ width, height, fill, stroke }: IconProps) => {
+  return (
+    <svg
+      width={`${width ?? 24}px`}
+      height={`${height ?? 24}px`}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 12H20M12 4V20"
+        stroke={stroke ?? "#000000"}
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
 export const IcMenu = ({ width, height, fill, stroke }: IconProps) => {
   return (
     <svg
