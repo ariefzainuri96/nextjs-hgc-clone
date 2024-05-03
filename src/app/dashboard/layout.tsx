@@ -13,7 +13,8 @@ export default function Layout({
   return (
     <div
       className={
-        `${inter.variable}` + " h-screen w-screen min-w-[400px] overflow-hidden"
+        `${inter.variable}` +
+        " h-screen max-h-screen w-screen min-w-[400px] overflow-hidden"
       }
     >
       <Head>
@@ -26,7 +27,7 @@ export default function Layout({
         <Menu />
         <div className="hidden w-[1px] bg-slate-100 lg:block" />
         <Navbar />
-        <main className="flex-1 overflow-y-scroll">{children}</main>
+        <main className="flex-1 overflow-y-auto">{children}</main>
       </div>
     </div>
   );
