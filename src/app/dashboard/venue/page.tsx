@@ -5,7 +5,7 @@ import VenueTable from "./(components)/VenueTable";
 
 const VenuePage = () => {
   return (
-    <div className="mx-[32px] flex flex-col items-start">
+    <div className="mx-[16px] flex flex-col sm:mx-[32px]">
       <p className="text-[30px] font-semibold">Venue</p>
       <p className="text-[16px] text-[#475467]">
         This page for Master Data Venue
