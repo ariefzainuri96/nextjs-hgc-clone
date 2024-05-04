@@ -14,7 +14,10 @@ const VenuePage = () => {
         <div className="flex flex-1 flex-row">
           <div className="flex w-full flex-row items-center gap-2 rounded-md border-[1px] border-slate-100 px-[14px] py-[6px] sm:max-w-[300px]">
             <IcSearch stroke="#667085" width="20" height="20" />
-            <input placeholder="Search" className="border-none outline-none" />
+            <input
+              placeholder="Search"
+              className="flex-1 border-none outline-none"
+            />
           </div>
         </div>
 

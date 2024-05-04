@@ -13,7 +13,7 @@ const Navbar = ({ className }: NavbarProps) => {
   const [checked, setChecked] = useState(false);
 
   return (
-    <div className={twMerge("navbar z-10 bg-white lg:hidden", className)}>
+    <div className={twMerge("navbar z-10 mx-2 bg-white lg:hidden", className)}>
       <div className="drawer">
         <input
           checked={checked}

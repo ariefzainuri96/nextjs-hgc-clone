@@ -1,8 +1,13 @@
-import Button from "@/components/Button";
+"use client";
+
 import { IcArrowUp, IcTrash } from "@/components/Icons";
 import { venueList } from "@/source/venue_source";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 const VenueTable = () => {
+  const params = useSearchParams();
+
   return (
     <div className="mt-[32px] flex flex-col overflow-x-auto rounded-lg border-[1px] border-[#EAECF0]">
       <table className="table">
@@ -52,9 +57,12 @@ const VenueTable = () => {
                   {element.picMarketingPhone}
                 </td>
                 <td>
-                  <div className="flex rotate-90 cursor-pointer flex-col items-center">
+                  <Link
+                    className="flex rotate-90 cursor-pointer flex-col items-center"
+                    href={`/dashboard/venue/${element.id}?${params}`}
+                  >
                     <IcArrowUp />
-                  </div>
+                  </Link>
                 </td>
               </tr>
             );

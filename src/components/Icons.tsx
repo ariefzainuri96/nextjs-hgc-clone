@@ -5,11 +5,11 @@ interface IconProps {
   height?: string;
 }
 
-export const IcArrowUp = ({ fill, stroke }: IconProps) => {
+export const IcArrowUp = ({ width, height, fill, stroke }: IconProps) => {
   return (
     <svg
-      width="24px"
-      height="24px"
+      width={`${width ?? 24}px`}
+      height={`${height ?? 24}px`}
       viewBox="0 0 24 24"
       fill={fill ?? "none"}
       xmlns="http://www.w3.org/2000/svg"
