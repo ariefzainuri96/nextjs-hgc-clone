@@ -1,9 +1,16 @@
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Menu from "./components/Menu";
-import Head from "next/head";
+import { Viewport } from "next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  width: "device-width",
+  userScalable: false,
+  viewportFit: "cover",
+};
 
 export default function Layout({
   children,
@@ -16,12 +23,6 @@ export default function Layout({
         `${inter.variable}` + " h-screen max-h-screen w-screen overflow-hidden"
       }
     >
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover"
-        />
-      </Head>
       <div className="flex h-full w-full flex-col overflow-hidden lg:flex-row">
         <Menu />
         <div className="hidden w-[1px] bg-slate-100 lg:block" />
