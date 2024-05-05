@@ -11,7 +11,6 @@ const VenueTable = () => {
   return (
     <div className="mt-[32px] flex flex-col overflow-x-auto rounded-lg border-[1px] border-[#EAECF0]">
       <table className="table">
-        {/* head */}
         <thead>
           <tr>
             <th className="text-[12px] font-medium text-[#475467]">Actions</th>

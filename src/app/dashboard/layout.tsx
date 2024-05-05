@@ -27,7 +27,7 @@ export default function Layout({
         <Menu />
         <div className="hidden w-[1px] bg-slate-100 lg:block" />
         <Navbar />
-        <main className="flex-1 overflow-y-auto">{children}</main>
+        <main className="w-full flex-1 overflow-y-auto">{children}</main>
       </div>
     </div>
   );

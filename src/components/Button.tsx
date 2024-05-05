@@ -2,7 +2,6 @@
 
 import { IcAdd, IcSearch } from "./Icons";
 import { twMerge } from "tailwind-merge";
-// import { useBreakpoint } from "@/lib/hooks/use_breakpoints";
 import { useIsBreakpointActive } from "@/lib/hooks/use_is_breakpoints_active";
 
 type ButtonProps = {
@@ -30,8 +29,7 @@ const Button = ({
   implementBreakPoints = false,
   variant = "full",
 }: ButtonProps) => {
-  // const { isAboveSm } = useBreakpoint("sm");
-  const isBreakPointActive = useIsBreakpointActive("sm");
+  // const isBreakPointActive = useIsBreakpointActive("sm");
 
   return (
     <button
@@ -42,7 +40,7 @@ const Button = ({
       )}
     >
       {iconName && <IconFromName iconName={iconName} />}
-      {implementBreakPoints ? (isBreakPointActive ? content : "") : content}
+      {content}
     </button>
   );
 };
