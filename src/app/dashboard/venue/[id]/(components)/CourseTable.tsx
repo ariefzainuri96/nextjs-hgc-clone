@@ -25,86 +25,114 @@ const CourseTable = ({ courseItem }: { courseItem: CourseItem }) => {
   }
 
   return (
-    <div className="mt-[12px] flex flex-col overflow-x-auto rounded-xl border-[1px] border-[#EAECF0]">
-      <table className="table">
-        <thead>
-          <tr className="text-center text-[14px] font-semibold text-[#475467]">
-            <th className="border-r-[1px] border-r-slate-100 px-[16px] py-[7px] text-left">
-              Hole
-            </th>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((element, index) => {
+    <div className="mt-[12px] flex flex-row overflow-hidden rounded-xl border-[1px] border-[#EAECF0]">
+      <div className="overflow-hidden">
+        <table className="table">
+          <thead>
+            <tr className="text-center text-[14px] font-semibold text-[#475467]">
+              <th className="border-r-[1px] border-r-slate-100 px-[16px] py-[7px] text-left">
+                Hole
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {courseItem.courseTable.map((element) => {
               return (
-                <td
-                  className={
-                    (index !== 8 ? "border-r-[1px] border-r-slate-100 " : "") +
-                    "px-[16px] py-[7px]"
-                  }
-                  key={element}
+                <tr
+                  className={twMerge(
+                    bgColor(element.name),
+                    textColor(element.name),
+                    "text-center text-[14px] font-semibold",
+                  )}
+                  key={element.name}
                 >
-                  {element}
-                </td>
+                  <th className="border-r-[1px] border-r-slate-100 px-[16px] py-[7px] text-left font-semibold">
+                    {element.name}
+                  </th>
+                </tr>
               );
             })}
-          </tr>
-        </thead>
-        <tbody>
-          {courseItem.courseTable.map((element, index) => {
-            return (
-              <tr
-                key={element.name}
-                className={twMerge(
-                  bgColor(element.name),
-                  textColor(element.name),
-                  "text-center text-[14px] font-semibold",
-                )}
-              >
-                <th className="border-r-[1px] border-r-slate-100 px-[16px] py-[7px] text-left font-semibold">
-                  {element.name}
-                </th>
-                {element.values.map((_element, index) => {
-                  return (
-                    <td
-                      className={
-                        (index !== element.values.length - 1
-                          ? "border-r-[1px] border-r-slate-100 "
-                          : "") + "px-[16px] py-[7px]"
-                      }
-                      key={index}
-                    >
-                      {_element}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-          <tr className={"bg-[#D5DEE7]"}>
-            <th className="border-r-[1px] border-r-slate-100 px-[16px] py-[7px] text-[14px] font-semibold">
-              Upload Course Layout
-            </th>
-            {courseItem.courseLayout.map((_element, index) => {
+            <tr>
+              <div className="flex h-10 flex-col justify-center border-r-[1px] border-r-slate-100 px-[16px] text-[14px] font-semibold">
+                Course Layout
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div className="flex-1 overflow-x-auto">
+        <table className="table">
+          <thead>
+            <tr className="text-center text-[14px] font-semibold text-[#475467]">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((element, index) => {
+                return (
+                  <td
+                    className={
+                      (index !== 8
+                        ? "border-r-[1px] border-r-slate-100 "
+                        : "") + "px-[16px] py-[7px]"
+                    }
+                    key={element}
+                  >
+                    {element}
+                  </td>
+                );
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            {courseItem.courseTable.map((element, index) => {
               return (
-                <td
-                  className={
-                    (index !== courseItem.courseLayout.length - 1
-                      ? "border-r-[1px] border-r-slate-100 "
-                      : "") + "px-1 py-1"
-                  }
-                  key={index}
+                <tr
+                  key={element.name}
+                  className={twMerge(
+                    bgColor(element.name),
+                    textColor(element.name),
+                    "text-center text-[14px] font-semibold",
+                  )}
                 >
-                  <div className="flex flex-row justify-center rounded-lg bg-white px-[8px] py-[8px]">
-                    {_element !== "" ? (
-                      <IcEye width="24" height="24" />
-                    ) : (
-                      <IcUpload width="24" height="24" />
-                    )}
-                  </div>
-                </td>
+                  {element.values.map((_element, index) => {
+                    return (
+                      <td
+                        className={
+                          (index !== element.values.length - 1
+                            ? "border-r-[1px] border-r-slate-100 "
+                            : "") + "px-[16px] py-[7px]"
+                        }
+                        key={index}
+                      >
+                        {_element}
+                      </td>
+                    );
+                  })}
+                </tr>
               );
             })}
-          </tr>
-        </tbody>
-      </table>
+            <tr className={"h-10 bg-[#D5DEE7]"}>
+              {courseItem.courseLayout.map((_element, index) => {
+                return (
+                  <td
+                    className={
+                      (index !== courseItem.courseLayout.length - 1
+                        ? "border-r-[1px] border-r-slate-100 "
+                        : "") + "h-10 px-1 py-1"
+                    }
+                    key={index}
+                  >
+                    <div className="flex flex-row justify-center rounded-lg bg-white px-[8px] py-[4px]">
+                      {_element !== "" ? (
+                        <IcEye width="24" height="24" />
+                      ) : (
+                        <IcUpload width="24" height="24" />
+                      )}
+                    </div>
+                  </td>
+                );
+              })}
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
