@@ -3,53 +3,28 @@
 import React, { ComponentProps } from "react";
 import { twMerge } from "tailwind-merge";
 
-type CustomInputProps = {
+type CustomAreaProps = {
   label: string;
   placeholder?: string;
   name?: string;
   enable?: boolean;
-  type?:
-    | "button"
-    | "checkbox"
-    | "color"
-    | "date"
-    | "datetime-local"
-    | "email"
-    | "file"
-    | "hidden"
-    | "image"
-    | "month"
-    | "number"
-    | "password"
-    | "radio"
-    | "range"
-    | "reset"
-    | "search"
-    | "submit"
-    | "tel"
-    | "text"
-    | "time"
-    | "url"
-    | "week";
   className?: string;
-} & ComponentProps<"input">;
+} & ComponentProps<"textarea">;
 
-const CustomInput = ({
+const CustomArea = ({
   className,
   label,
   placeholder,
   name,
   enable = true,
-  type = "text",
   ...props
-}: CustomInputProps) => {
+}: CustomAreaProps) => {
   return (
     <div className={className}>
       <p className="text-sm font-medium text-[#344054]">{label}</p>
-      <input
+      <textarea
         placeholder={placeholder}
         name={name}
-        type={type}
         className={twMerge(
           "mt-[6px] w-full rounded-lg border-[1px] border-slate-100 px-[14px] py-[10px] text-[16px] outline-none",
           enable ? "text-[#101828]" : "text-[#667085]",
@@ -60,4 +35,4 @@ const CustomInput = ({
   );
 };
 
-export default CustomInput;
+export default CustomArea;

@@ -1,6 +1,7 @@
 import BackButtonNav from "@/components/BackButtonNav";
-import CustomInput from "@/components/CustomInput";
 import { delay } from "@/lib/utils";
+import VenueDetail from "./(components)/VenueDetail";
+import CourseDetail from "./(components)/CourseDetail";
 
 interface DetailVenuePageProps {
   params: {
@@ -20,15 +21,8 @@ const DetailVenuePage = async ({ params: { id } }: DetailVenuePageProps) => {
         </p>
       </div>
       <div className="mt-[32px] h-[1px] w-full bg-[#EAECF0]" />
-      <p className="mt-[24px] text-[18px] font-semibold text-[#101828]">
-        Venue Detail
-      </p>
-      <CustomInput
-        className="mt-[24px]"
-        label={"Venue Name"}
-        value="Sedayu Indo Golf"
-        enable={false}
-      />
+      <VenueDetail />
+      <CourseDetail />
     </div>
   );
 };
