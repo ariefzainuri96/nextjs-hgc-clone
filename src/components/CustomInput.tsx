@@ -5,42 +5,14 @@ import { twMerge } from "tailwind-merge";
 
 type CustomInputProps = {
   label: string;
-  placeholder?: string;
-  name?: string;
   enable?: boolean;
-  type?:
-    | "button"
-    | "checkbox"
-    | "color"
-    | "date"
-    | "datetime-local"
-    | "email"
-    | "file"
-    | "hidden"
-    | "image"
-    | "month"
-    | "number"
-    | "password"
-    | "radio"
-    | "range"
-    | "reset"
-    | "search"
-    | "submit"
-    | "tel"
-    | "text"
-    | "time"
-    | "url"
-    | "week";
   className?: string;
 } & ComponentProps<"input">;
 
 const CustomInput = ({
   className,
   label,
-  placeholder,
-  name,
   enable = true,
-  type = "text",
   ...props
 }: CustomInputProps) => {
   return (
@@ -48,9 +20,6 @@ const CustomInput = ({
       <p className="text-sm font-medium text-[#344054]">{label}</p>
       <input
         disabled={!enable}
-        placeholder={placeholder}
-        name={name}
-        type={type}
         className={twMerge(
           "mt-[6px] w-full rounded-lg border-[1px] border-slate-100 px-[14px] py-[10px] text-[16px] outline-none",
           enable ? "text-[#101828]" : "text-[#667085]",

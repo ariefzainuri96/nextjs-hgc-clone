@@ -7,34 +7,57 @@ import { TVenue } from "../use_add_venue";
 
 const AddVenueForm = ({
   venue,
-  setVenue,
+  handleChange,
 }: {
   venue?: TVenue;
-  setVenue: React.Dispatch<React.SetStateAction<TVenue | undefined>>;
+  handleChange(
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+  ): void;
 }) => {
   return (
     <form className="flex flex-col">
       <div className="mt-[24px] flex flex-col gap-[24px] sm:flex-row">
         <CustomInput
+          value={venue?.venueName}
           className="flex-1"
           label={"Venue Name"}
-          onChange={(e) => {
-            setVenue(venue);
-          }}
+          name="venueName"
+          onChange={handleChange}
         />
-        <CustomInput className="flex-1" label={"Venue Phone Number"} />
+        <CustomInput
+          className="flex-1"
+          label={"Venue Phone Number"}
+          name="venuePhoneNumber"
+          onChange={handleChange}
+        />
       </div>
       <div className="mt-[24px] flex flex-col gap-[24px] sm:flex-row">
-        <CustomInput className="flex-1" label={"PIC Marketing"} />
-        <CustomInput className="flex-1" label={"PIC Phone Number"} />
+        <CustomInput
+          className="flex-1"
+          label={"PIC Marketing"}
+          name="picMarketing"
+          onChange={handleChange}
+        />
+        <CustomInput
+          className="flex-1"
+          label={"PIC Phone Number"}
+          name="picPhoneNumber"
+          onChange={handleChange}
+        />
       </div>
-      <CustomInput className="mt-[24px] flex-1" label={"Venue Address"} />
+      <CustomInput
+        className="mt-[24px] flex-1"
+        label={"Venue Address"}
+        name="venueAddress"
+        onChange={handleChange}
+      />
       <CustomArea
         className="mt-[24px] flex-1"
         label={"Description"}
-        defaultValue={
-          "Lorem ipsum dolor sit amet consectetur. Massa vel egestas orci arcu enim. Praesent eget a aliquet ut donec viverra proin dui. Quam arcu cursus nullam tellus nisi tellus nisl dolor. Odio sit viverra sem pellentesque arcu velit. Sed vitae et nisl mi sed gravida quis. Fringilla dignissim pharetra et purus sagittis tellus aenean nulla vestibulum. Libero tortor elit augue enim eu cursus. Accumsan viverra amet ornare ipsum rhoncus sit. Aliquet cras at neque at pellentesque porttitor orci mauris mauris. Pellentesque consectetur et at sed sed a ut hac. Dictumst magna egestas senectus pulvinar."
-        }
+        name="description"
+        onChange={handleChange}
       />
     </form>
   );
