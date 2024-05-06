@@ -2,6 +2,10 @@ import Button from "@/components/Button";
 import { IcSearch } from "@/components/Icons";
 import React from "react";
 import VenueTable from "./(components)/VenueTable";
+import DeleteDataDialog from "@/components/DeleteDataDialog";
+import { deleteVenue } from "./actions";
+import Link from "next/link";
+import AddVenue from "./(components)/AddVenue";
 
 const VenuePage = () => {
   return (
@@ -22,17 +26,13 @@ const VenuePage = () => {
         </div>
 
         <div className="flex flex-row justify-end">
-          <Button
-            implementBreakPoints={true}
-            content={"Add Venue"}
-            iconName={"add"}
-            variant={"full"}
-          />
+          <AddVenue />
         </div>
       </div>
       <div className="mb-[16px] w-full overflow-hidden">
         <VenueTable />
       </div>
+      <DeleteDataDialog formAction={deleteVenue} />
     </div>
   );
 };

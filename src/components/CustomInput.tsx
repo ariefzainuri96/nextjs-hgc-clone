@@ -47,6 +47,7 @@ const CustomInput = ({
     <div className={className}>
       <p className="text-sm font-medium text-[#344054]">{label}</p>
       <input
+        disabled={!enable}
         placeholder={placeholder}
         name={name}
         type={type}

@@ -3,6 +3,7 @@
 import { IcAdd, IcSearch } from "./Icons";
 import { twMerge } from "tailwind-merge";
 import { useIsBreakpointActive } from "@/lib/hooks/use_is_breakpoints_active";
+import React from "react";
 
 type ButtonProps = {
   content: string;
@@ -10,6 +11,7 @@ type ButtonProps = {
   className?: string;
   implementBreakPoints?: boolean;
   variant?: "outlined" | "full";
+  onButtonClick?: (e: React.MouseEvent) => void;
 };
 
 const IconFromName = ({ iconName }: { iconName: string }) => {
@@ -28,11 +30,13 @@ const Button = ({
   className,
   implementBreakPoints = false,
   variant = "full",
+  onButtonClick,
 }: ButtonProps) => {
   // const isBreakPointActive = useIsBreakpointActive("sm");
 
   return (
     <button
+      onClick={onButtonClick}
       className={twMerge(
         "flex flex-row items-center gap-2 rounded-lg px-[16px] py-[6px] text-white",
         variant === "full" ? "bg-[#E24955]" : "border-[1px] border-[#D0D5DD]",

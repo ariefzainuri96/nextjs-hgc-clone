@@ -23,6 +23,7 @@ const CustomArea = ({
     <div className={className}>
       <p className="text-sm font-medium text-[#344054]">{label}</p>
       <textarea
+        disabled={!enable}
         placeholder={placeholder}
         name={name}
         className={twMerge(

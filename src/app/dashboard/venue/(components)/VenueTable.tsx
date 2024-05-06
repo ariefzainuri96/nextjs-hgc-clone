@@ -39,7 +39,18 @@ const VenueTable = () => {
                 className={index % 2 !== 0 ? "bg-[#F9FAFB]" : ""}
               >
                 <th>
-                  <div className="flex w-full cursor-pointer flex-row justify-center">
+                  <div
+                    onClick={(e) => {
+                      e.preventDefault();
+
+                      window.history.pushState(
+                        null,
+                        "",
+                        `/dashboard/venue?${params}&showdelete=true&id=${element.id}`,
+                      );
+                    }}
+                    className="flex w-full cursor-pointer flex-row justify-center"
+                  >
                     <IcTrash />
                   </div>
                 </th>

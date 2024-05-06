@@ -14,7 +14,7 @@ const BackButtonNav = () => {
 
         router.back();
       }}
-      className="rotate-90 rounded-full border-[1px]"
+      className="rotate-90 rounded-full border-[1px] hover:bg-slate-100"
     >
       <div className="rotate-180">
         <IcArrowUp width="30" height="30" />

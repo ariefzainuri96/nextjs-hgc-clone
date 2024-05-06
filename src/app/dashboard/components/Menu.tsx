@@ -90,7 +90,7 @@ const Menu = ({ className, onMenuClick }: MenuProps) => {
               {selected &&
                 (element.menus ?? []).map((_element, _index) => {
                   const menuPath = (_element.href ?? "").split("/").pop();
-                  const selected = pathName.split("/").pop() === menuPath;
+                  const selected = pathName.includes(menuPath ?? "");
 
                   const parents = parent?.includes(element.key ?? "")
                     ? parent

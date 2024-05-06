@@ -25,6 +25,43 @@ export const IcArrowUp = ({ width, height, fill, stroke }: IconProps) => {
   );
 };
 
+export const IcWarning = ({ width, height, fill, stroke }: IconProps) => {
+  return (
+    <svg
+      width={`${width ?? 57}px`}
+      height={`${height ?? 57}px`}
+      viewBox="0 0 57 57"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="4.83594"
+        y="4.06006"
+        width="48"
+        height="48"
+        rx="24"
+        fill="#FEE4E2"
+      />
+      <rect
+        x="4.83594"
+        y="4.06006"
+        width="48"
+        height="48"
+        rx="24"
+        stroke="#FEF3F2"
+        stroke-width="8"
+      />
+      <path
+        d="M28.8359 24.0601V28.0601M28.8359 32.0601H28.8459M38.8359 28.0601C38.8359 33.5829 34.3588 38.0601 28.8359 38.0601C23.3131 38.0601 18.8359 33.5829 18.8359 28.0601C18.8359 22.5372 23.3131 18.0601 28.8359 18.0601C34.3588 18.0601 38.8359 22.5372 38.8359 28.0601Z"
+        stroke="#D92D20"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
 export const IcUpload = ({ width, height, fill, stroke }: IconProps) => {
   return (
     <svg

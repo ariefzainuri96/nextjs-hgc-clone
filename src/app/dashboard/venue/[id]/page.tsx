@@ -14,7 +14,7 @@ const DetailVenuePage = async ({ params: { id } }: DetailVenuePageProps) => {
 
   return (
     <div className="mx-[16px] flex flex-col sm:mx-[32px]">
-      <div className="flex flex-row items-center gap-3">
+      <div className="flex flex-row items-center gap-3 sm:mt-[16px]">
         <BackButtonNav />
         <p className="text-3xl font-semibold text-[#101828]">
           Detail Info Venue
