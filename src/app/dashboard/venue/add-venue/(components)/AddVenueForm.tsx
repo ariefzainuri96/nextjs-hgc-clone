@@ -27,7 +27,9 @@ const AddVenueForm = ({
           onChange={handleChange}
         />
         <CustomInput
+          value={venue?.venuePhoneNumber}
           className="flex-1"
+          type="tel"
           label={"Venue Phone Number"}
           name="venuePhoneNumber"
           onChange={handleChange}
@@ -35,25 +37,30 @@ const AddVenueForm = ({
       </div>
       <div className="mt-[24px] flex flex-col gap-[24px] sm:flex-row">
         <CustomInput
+          value={venue?.picMarketing}
           className="flex-1"
           label={"PIC Marketing"}
           name="picMarketing"
           onChange={handleChange}
         />
         <CustomInput
+          value={venue?.picPhoneNumber}
           className="flex-1"
           label={"PIC Phone Number"}
+          type="tel"
           name="picPhoneNumber"
           onChange={handleChange}
         />
       </div>
       <CustomInput
+        value={venue?.venueAddress}
         className="mt-[24px] flex-1"
         label={"Venue Address"}
         name="venueAddress"
         onChange={handleChange}
       />
       <CustomArea
+        value={venue?.description}
         className="mt-[24px] flex-1"
         label={"Description"}
         name="description"

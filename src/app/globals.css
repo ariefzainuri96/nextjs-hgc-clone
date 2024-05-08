@@ -27,11 +27,15 @@
   }
 
   .btn-filled-primary {
-    @apply rounded-lg bg-[#D92D20] px-2 py-[10px] text-[16px] font-semibold text-[#fff] hover:bg-[#ff392b];
+    @apply rounded-lg bg-[#E24955] px-2 py-[10px] text-[16px] font-semibold text-[#fff] hover:bg-[#e42d20];
   }
 
   .parent-dialog {
     @apply fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center overflow-auto bg-black bg-opacity-50 backdrop-blur;
+  }
+
+  .child-dialog {
+    @apply mx-[10vw] flex w-full max-w-[400px] flex-col rounded-lg bg-white p-6;
   }
 
   .inter-600-18 {

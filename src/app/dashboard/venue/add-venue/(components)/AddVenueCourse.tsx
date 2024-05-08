@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
-import { TCourse, TVenue, defaultTCourseDetail } from "../use_add_venue";
+import { TCourse, TVenue } from "../use_add_venue";
 import Button from "@/components/Button";
 import CourseTableItem from "./CourseTableItem";
+import { useSearchParams } from "next/navigation";
 
 const AddVenueCourse = ({
   venue,
@@ -16,6 +17,8 @@ const AddVenueCourse = ({
   deleteCourse: (index: number) => void;
   updateCourse: (index: number, course: TCourse) => void;
 }) => {
+  const params = useSearchParams();
+
   return (
     <div className="mt-[32px] flex flex-col">
       <div className="flex flex-row">
@@ -28,7 +31,40 @@ const AddVenueCourse = ({
 
             addCourse({
               courseName: "",
-              courseDetail: defaultTCourseDetail,
+              courseDetail: [
+                {
+                  content: "Hole",
+                  values: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                },
+                {
+                  content: "Black",
+                  values: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                },
+                {
+                  content: "Blue",
+                  values: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                },
+                {
+                  content: "White",
+                  values: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                },
+                {
+                  content: "Red",
+                  values: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                },
+                {
+                  content: "Par",
+                  values: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                },
+                {
+                  content: "Index",
+                  values: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                },
+                {
+                  content: "Course Layout",
+                  values: ["", "", "", "", "", "", "", "", ""],
+                },
+              ],
             });
           }}
         />
@@ -37,11 +73,16 @@ const AddVenueCourse = ({
         return (
           <CourseTableItem
             key={index}
+            courseIndex={index}
             course={element}
             onDeleteClick={(e) => {
               e.preventDefault();
 
-              deleteCourse(index);
+              window.history.pushState(
+                null,
+                "",
+                `/dashboard/venue/add-venue?${params}&showdelete=true&id=${index}`,
+              );
             }}
             onUpdateCouse={(course) => {
               updateCourse(index, course);

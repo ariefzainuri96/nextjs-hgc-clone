@@ -1,3 +1,5 @@
+import { TCourseDetail } from "@/app/dashboard/venue/add-venue/use_add_venue";
+
 type VenueItem = {
   id: string;
   venueName: string;

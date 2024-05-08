@@ -4,9 +4,12 @@ import React from "react";
 import AddVenueForm from "./(components)/AddVenueForm";
 import useAddVenue from "./use_add_venue";
 import AddVenueCourse from "./(components)/AddVenueCourse";
-import Button from "@/components/Button";
+import DeleteDataDialog from "@/components/DeleteDataDialog";
+import { useRouter } from "next/navigation";
+import CourseImageDialog from "./(components)/CourseImageDialog";
 
 const AddVenuePage = () => {
+  const router = useRouter();
   const { venue, addCourse, updateCourse, deleteCourse, handleChange } =
     useAddVenue();
 
@@ -22,12 +25,28 @@ const AddVenuePage = () => {
         deleteCourse={(index) => deleteCourse(index)}
         updateCourse={(index, course) => updateCourse(index, course)}
       />
-      <Button
-        content={"click me"}
-        onButtonClick={(e) => {
-          e.preventDefault();
+      <div className="mb-4 flex flex-row justify-end gap-3">
+        <button className="btn-outlined px-[54px]">Cancel</button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
 
-          console.log(venue);
+            console.log(venue);
+          }}
+          className="btn-filled-primary px-[54px]"
+        >
+          Create
+        </button>
+      </div>
+      <DeleteDataDialog
+        formAction={(_, formData) => {
+          deleteCourse(Number(formData.get("id")));
+          router.back();
+        }}
+      />
+      <CourseImageDialog
+        formAction={function (prevState: any, formData: FormData): void {
+          throw new Error("Function not implemented.");
         }}
       />
     </div>

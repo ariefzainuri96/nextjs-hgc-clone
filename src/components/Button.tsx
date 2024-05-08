@@ -38,7 +38,7 @@ const Button = ({
     <button
       onClick={onButtonClick}
       className={twMerge(
-        "flex flex-row items-center gap-2 rounded-lg px-[16px] py-[6px] text-white",
+        "flex flex-row items-center gap-2 rounded-lg px-[16px] py-[10px] text-white",
         variant === "full" ? "bg-[#E24955]" : "border-[1px] border-[#D0D5DD]",
         className,
       )}
